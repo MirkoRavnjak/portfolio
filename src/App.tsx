@@ -126,43 +126,43 @@ const RightIcon = styled(KeyboardArrowRightIcon)({
   }
 })
 
-const Decorator = styled(ListItemDecorator)({
+const Decorator = styled(ListItemDecorator)(({theme}) => ({
   margin: 0,
   padding: 0,
+  color: theme.palette.mode === 'dark' ? '#73c268': '#0d0aa1',
   '@media screen and (min-width:1024px)': {
     display: 'block'
   },
   '@media screen and (max-width:1023px)': {
     display: 'none'
   }
-})
+}))
 
-const ButtonList = styled(ListItemButton)({
+const ButtonList = styled(ListItemButton)(({theme}) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#0a151a': '#81a6b4',
   '&:hover':{
     backgroundColor: 'red',
 }
-})
+}))
 
-
-
-const ListItemStyled = styled(ListItem)({
+const ListItemStyled = styled(ListItem)(({theme})=>({
   minWidth: '90%',
   maxWidth: '90%',
   //minMax: '80%', 
   margin:'5px auto',
-  color: theme.palette.mode === 'dark' ? '#d2e0e6': '#0a151a' ,
-  border: theme.palette.mode === 'dark' ? '1px solid #86b8c9': '1px solid #455a64',
+  color: theme.palette.mode === 'dark' ? '#419e39': '#0a151a',
+  border: theme.palette.mode === 'dark' ? '1px solid #4e0728': '1px solid #0a0ef0',
   borderRadius: '5px',
   //backgroundColor:  'blue',
-  backgroundColor: theme.palette.mode === 'dark' ? '#be196c': '#81a6b4',
+  backgroundColor: theme.palette.mode === 'dark' ? '#242022': '#77cbe9',
   // backgroundColor: theme.palette.mode === 'dark' ? '#81a6b4': '#0a151a',
-  // '&:hover':{
-  //      backgroundColor: 'red',
-  //  }
-  textAlign: 'center'
-})
-
+  '&:hover':{
+    backgroundColor: theme.palette.mode === 'dark' ? '#07411a': '#197697',
+  },
+  textAlign: 'center',
+  zIndex: 3,
+}))
+ //border: theme.palette.mode === 'dark' ? '1px solid #86b8c9': '1px solid #455a64',
 const ListContent = styled(ListItemContent)({
   '@media screen and (max-width:1023px)': {
     textAlign: 'center'
@@ -183,12 +183,12 @@ return (
         <ModeToggle   />
      
         <Row container xs={12}  md={11} spacing={2} >
-          <Column xs={3} md={2}>
+          <Column xs={4.5} md={2} sx={{display: {xs: 'none', sm: 'block', md: 'block'}}}>
             <Item ><h1>W1</h1></Item>         
             <Item><h2>This is porftolio</h2></Item>
           </Column>
 
-          <Column xs={7} md={7}>
+          <Column xs={12} sm={7}>
             <Item ><h1>W2</h1></Item>          
             <Item><h2>This is porftolio</h2></Item>
           </Column>
