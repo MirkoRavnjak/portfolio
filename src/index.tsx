@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { CssVarsProvider, extendTheme } from '@mui/joy/styles';
 import reportWebVitals from './reportWebVitals';
+import ModeToggle from './components/mode-toggle/ModeToggle';
+const theme = extendTheme({ cssVarPrefix: 'portfolio' });
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <CssVarsProvider>
+      <App />
+    </CssVarsProvider>
   </React.StrictMode>
 );
 

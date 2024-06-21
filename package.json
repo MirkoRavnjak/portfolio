@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@fontsource/inter": "^5.0.18",
+    "@mui/icons-material": "^5.15.20",
+    "@mui/joy": "^5.0.0-beta.36",
+    "@mui/material": "^5.15.20",
+    "@mui/styles": "^5.15.17",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -10,23 +17,22 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "eslint": "^9.2.0",
+    "eslint-plugin-react": "^7.34.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
+  "resolutions": {
+    "@mui/material": "npm:@mui/joy@latest"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3400 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -38,6 +44,92 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "main": "index.js",
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.0",
+    "@eslint/js": "^9.2.0",
+    "globals": "^15.2.0",
+    "typescript-eslint": "^7.9.0"
+  },
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "fragment": "Fragment",
+      "version": "detect",
+      "flowVersion": "0.53"
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps",
+      {
+        "property": "freeze",
+        "object": "Object"
+      },
+      {
+        "property": "myFavoriteWrapper"
+      },
+      {
+        "property": "forbidExtraProps",
+        "exact": true
+      }
+    ],
+    "plugins": [
+      "react"
+    ],
+    "componentWrapperFunctions": [
+      "observer",
+      {
+        "property": "styled"
+      },
+      {
+        "property": "observer",
+        "object": "Mobx"
+      },
+      {
+        "property": "observer",
+        "object": "<pragma>"
+      }
+    ],
+    "formComponents": [
+      "CustomForm",
+      {
+        "name": "SimpleForm",
+        "formAttribute": "endpoint"
+      },
+      {
+        "name": "Form",
+        "formAttribute": [
+          "registerEndpoint",
+          "loginEndpoint"
+        ]
+      }
+    ],
+    "linkComponents": [
+      "Hyperlink",
+      {
+        "name": "MyLink",
+        "linkAttribute": "to"
+      },
+      {
+        "name": "Link",
+        "linkAttribute": [
+          "to",
+          "href"
+        ]
+      }
     ]
   }
 }

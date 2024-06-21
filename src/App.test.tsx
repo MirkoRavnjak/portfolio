@@ -1,9 +1,10 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
-
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+  import React from 'react'
+  import './matchMedia.mock'; // Must be imported before the tested file
+  import { render, screen } from '@testing-library/react';
+  import App from './App';
+  //import {myMethod} from './file-to-test';
+  test('renders portfolio text', () => {
+    render(<App />);
+    const text = screen.getByText('This is portfolio');
+    expect(text).toBeInTheDocument();
+  });
